@@ -1,6 +1,5 @@
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 public class StatisticsServiceTest {
 
@@ -13,6 +12,17 @@ public class StatisticsServiceTest {
 
         long actual = service.findMax(incomesInBillions);
 
-        assertEquals(expected, actual);
+        Assertions.assertEquals(expected, actual);
     }
+
+    @Test
+    void findCycle() {
+        StatisticsService service = new StatisticsService();
+
+        long[] incomesInBillions = {1, 2, 3, 4, 5, 6, 7};
+        long expected = 7;
+
+        long actual = service.findMax(incomesInBillions);
+
+        Assertions.assertEquals(expected, actual);}
 }
